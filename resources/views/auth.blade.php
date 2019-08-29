@@ -6,7 +6,8 @@
 </head>
 <body>
        <h1> You are now Logged in </h1>
-    <form action="nonauth.blade.php" method="post" >
+<form>
+             
       <a href="/nonauth"> Click to log out</a>
     </form>
  </body>

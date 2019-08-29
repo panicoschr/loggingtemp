@@ -25,5 +25,4 @@ Route::get('/auth', 'HomeController@auth')->name('auth');
 
 Route::get('/nonauth', 'HomeController@nonauth')->name('nonauth');
 
-
-//Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/logout', 'HomeController@nonauth')->name('nonauth');

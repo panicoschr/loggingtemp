@@ -7,7 +7,8 @@
 <body>
    
     <h1> You have Logged out </h1>
-    <form action="welcome.blade.php" method="post" >
+    <form>
+       
     <a href="/login"> Click to log in</a>
           
 </body>

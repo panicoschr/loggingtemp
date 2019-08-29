@@ -3,20 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-
 use Auth;
 
+class HomeController extends Controller {
 
-class HomeController extends Controller
-{
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
     }
 
@@ -25,30 +21,21 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-       //return view('home');
-   //    return view('home', ['origin'=>'index']);
-        
-        
-        return redirect()->route('auth');
-        
+    public function index() {
+        if (\Auth::check()) {
+            return redirect()->route('auth');
+        } else {
+            redirect()->route('nonauth');
+        }
     }
-    
-        public function auth()
-    {
-       //['origins'=>'auth']
-       return view('auth');
 
-        
+    public function auth() {
+        return view('auth');
     }
-    
-        public function nonauth()
-    {
-            
-              Auth::logout();
-       return view('nonauth');
-      
-        
+
+    public function nonauth() {
+        Auth::logout();
+        return view('nonauth');
     }
+
 }
